@@ -16,3 +16,16 @@ controller all --package ~.web
 perform eclipse
 security setup
 perform eclipse
+class --class ~.security.AutoRegisterAuthenticationFailureHandler
+dependency add --groupId org.springframework.security --artifactId spring-security-openid --version 3.0.5.RELEASE
+
+dependency add --groupId org.openid4java --artifactId openid4java --version 0.9.5
+dependency add --groupId commons-httpclient --artifactId commons-httpclient --version 3.1
+perform eclipse
+perform eclipse
+class --class ~.security.ProfileUser
+class --class ~.security.AutoRegisterUserDetailService
+focus --class ~.domain.Profile
+finder list
+finder add findProfilesByUsername
+finder add findProfilesByIdentityUrl

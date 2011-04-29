@@ -7,6 +7,8 @@
         <menu:category id="c_profile" z="7+DSGeUy45gwkQx/NptxyQe7XpY=">
             <menu:item id="i_profile_new" messageCode="global_menu_new" url="/profiles?form" z="5CN+Gy9le00bCK9RJj72N/fBXsM="/>
         <menu:item id="i_profile_list" messageCode="global_menu_list" url="/profiles?page=1&amp;size=${empty param.size ? 10 : param.size}" z="Xn953x2DUSQIcljOjuowLDd1gRc="/>
+        <menu:item id="fi_profile_username" messageCode="global_menu_find" url="/profiles?find=ByUsername&amp;form" z="H94G8aqFr7ereVe3sLNN8HZRzko="/>
+        <menu:item id="fi_profile_identityurl" messageCode="global_menu_find" url="/profiles?find=ByIdentityUrl&amp;form" z="/6f8kn1w1l/Ix5UQ0x0gzXradm0="/>
         </menu:category>
     <menu:category id="c_chirp" z="nAeNknO2VkzDaRmIUaNKip97vt0=">
             <menu:item id="i_chirp_new" messageCode="global_menu_new" url="/chirps?form" z="Xep/aGb4QTbHkDdd+ydlK4ZS8dE="/>

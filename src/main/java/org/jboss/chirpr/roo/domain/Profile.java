@@ -12,7 +12,7 @@ import javax.persistence.CascadeType;
 
 @RooJavaBean
 @RooToString
-@RooEntity
+@RooEntity(finders = { "findProfilesByUsername", "findProfilesByIdentityUrl" })
 public class Profile {
 
     @NotNull
@@ -28,15 +28,14 @@ public class Profile {
 
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "friends")
     private Set<org.jboss.chirpr.roo.domain.Profile> followers = new HashSet<org.jboss.chirpr.roo.domain.Profile>();
-    
-    
+
     public void follow(Profile profile) {
-    	this.friends.add(profile);
-    	profile.followers.add(this);
+        this.friends.add(profile);
+        profile.followers.add(this);
     }
-    
+
     public void unfollow(Profile profile) {
-    	this.friends.remove(profile);
-    	profile.followers.remove(this);
+        this.friends.remove(profile);
+        profile.followers.remove(this);
     }
 }
