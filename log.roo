@@ -29,3 +29,4 @@ focus --class ~.domain.Profile
 finder list
 finder add findProfilesByUsername
 finder add findProfilesByIdentityUrl
+controller all --package ~.web
