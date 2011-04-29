@@ -12,3 +12,5 @@ entity --class ~.domain.Chirp
 field reference --fieldName author --type ~.domain.Profile --notNull
 field string --fieldName text --notNull --sizeMin 1 --sizeMax 140
 field date --fieldName postedOn --type java.util.Date --notNull
+controller all --package ~.web
+perform eclipse

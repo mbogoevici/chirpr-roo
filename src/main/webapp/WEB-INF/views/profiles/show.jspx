@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_org_jboss_chirpr_roo_domain_Profile" object="${profile}" path="/profiles" z="f/DppDEflOxR6JTkq/zsEAewd1k=">
+        <field:display field="username" id="s_org_jboss_chirpr_roo_domain_Profile_username" object="${profile}" z="07rFajySfKLR7hFGXondR5DY1Rc="/>
+        <field:display field="identityUrl" id="s_org_jboss_chirpr_roo_domain_Profile_identityUrl" object="${profile}" z="vKBwPRUc4GQi41T/NkUe8elp7rc="/>
+        <field:display field="friends" id="s_org_jboss_chirpr_roo_domain_Profile_friends" object="${profile}" z="Nm9NgKCsmUXSMx1cLKw2oYnVTGI="/>
+        <field:display field="followers" id="s_org_jboss_chirpr_roo_domain_Profile_followers" object="${profile}" z="GEdlfjv8lHsyr55KNm1/T/tlUBM="/>
+    </page:show>
+</div>

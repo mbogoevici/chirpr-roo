@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_org_jboss_chirpr_roo_domain_Profile" modelAttribute="profile" path="/profiles" versionField="Version" z="VBxC973Hj0lrifQLdSlC1xP4fg0=">
+        <field:input field="username" id="c_org_jboss_chirpr_roo_domain_Profile_username" required="true" z="EKcGypUzovk1zJFPdl2Nl8OSzXs="/>
+        <field:input field="identityUrl" id="c_org_jboss_chirpr_roo_domain_Profile_identityUrl" required="true" z="qCTXGo8HgNqhBj9we1IQwkieTHs="/>
+        <field:select field="friends" id="c_org_jboss_chirpr_roo_domain_Profile_friends" itemValue="id" items="${profiles}" multiple="true" path="/profiles" z="oTngwcb7A3fmC+727eK0UDc41sU="/>
+        <field:select field="followers" id="c_org_jboss_chirpr_roo_domain_Profile_followers" itemValue="id" items="${profiles}" multiple="true" path="/profiles" z="XhFbF2mZYAzgeM18SV5kk0DVDsM="/>
+    </form:update>
+</div>

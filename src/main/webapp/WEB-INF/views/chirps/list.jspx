@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_jboss_chirpr_roo_domain_Chirp" items="${chirps}" z="ByxrMSVbB37VdWlbnyF/uXymRQA=">
+        <table:table data="${chirps}" id="l_org_jboss_chirpr_roo_domain_Chirp" path="/chirps" z="JCLXHUN0ZMoC8AJ8sTek+EUDCeI=">
+            <table:column id="c_org_jboss_chirpr_roo_domain_Chirp_author" property="author" z="eu+wFAZvLIElIYQz6wWXcPeCWXQ="/>
+            <table:column id="c_org_jboss_chirpr_roo_domain_Chirp_text" property="text" z="ADst/ZlqZvZiu3hoT3a8SQXUr2g="/>
+            <table:column date="true" dateTimePattern="${chirp_postedon_date_format}" id="c_org_jboss_chirpr_roo_domain_Chirp_postedOn" property="postedOn" z="CnYg7BZCi67QTaMmnS3DGhtNPPE="/>
+        </table:table>
+    </page:list>
+</div>

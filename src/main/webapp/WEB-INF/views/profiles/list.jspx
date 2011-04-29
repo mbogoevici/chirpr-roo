@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_jboss_chirpr_roo_domain_Profile" items="${profiles}" z="KX26fH6L/LuE/j2GiI00xcNDpAo=">
+        <table:table data="${profiles}" id="l_org_jboss_chirpr_roo_domain_Profile" path="/profiles" z="9ZlV7m9U1l2QALSixhmKZjtQsjU=">
+            <table:column id="c_org_jboss_chirpr_roo_domain_Profile_username" property="username" z="6LhaOmPPOM3XsTSxfF6h0fluKn0="/>
+            <table:column id="c_org_jboss_chirpr_roo_domain_Profile_identityUrl" property="identityUrl" z="q8M6NuTvNf6+9J+HcMQ3Xa70x1k="/>
+            <table:column id="c_org_jboss_chirpr_roo_domain_Profile_friends" property="friends" z="wlzeq71/ydudlUsaW2lVyGqI+h8="/>
+            <table:column id="c_org_jboss_chirpr_roo_domain_Profile_followers" property="followers" z="P4o5JUytFFEobMLwsYFuk5b31lU="/>
+        </table:table>
+    </page:list>
+</div>

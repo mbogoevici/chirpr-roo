@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_org_jboss_chirpr_roo_domain_Chirp" modelAttribute="chirp" path="/chirps" render="${empty dependencies}" z="Yx6mU20X+LZKarL2SeeliQbSW1Y=">
+        <field:select field="author" id="c_org_jboss_chirpr_roo_domain_Chirp_author" itemValue="id" items="${profiles}" path="/profiles" required="true" z="WRMu2wQY3EhyMmXSfwnCb4F+whM="/>
+        <field:textarea field="text" id="c_org_jboss_chirpr_roo_domain_Chirp_text" required="true" z="KZgOuSeZENr+oHQGrz17jHvaZ5w="/>
+        <field:datetime dateTimePattern="${chirp_postedon_date_format}" field="postedOn" id="c_org_jboss_chirpr_roo_domain_Chirp_postedOn" required="true" z="N4RNiBFOD0Nnz/Quz0e4NLS6eQo="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_org_jboss_chirpr_roo_domain_Chirp" render="${not empty dependencies}" z="ZTA59Bvm8MPSQP54nmy3wFQCckw="/>
+</div>
