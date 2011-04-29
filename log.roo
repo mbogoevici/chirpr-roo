@@ -3,3 +3,12 @@ project --topLevelPackage org.jboss.chirpr.roo --projectName chirpr-roo --java 6
 // Spring Roo 1.1.3.RELEASE [rev 4404ffb] log closed at 2011-04-29 14:55:07
 // Spring Roo 1.1.3.RELEASE [rev 4404ffb] log opened at 2011-04-29 14:55:40
 persistence setup --provider HIBERNATE --database HYPERSONIC_PERSISTENT 
+entity --class ~.domain.Profile
+field string --fieldName username --notNull --unique 
+field string --fieldName identityUrl --notNull --unique 
+field set --fieldName friends --type ~.domain.Profile --cardinality MANY_TO_MANY 
+field set --fieldName followers --type ~.domain.Profile --cardinality MANY_TO_MANY --mappedBy friends
+entity --class ~.domain.Chirp 
+field reference --fieldName author --type ~.domain.Profile --notNull
+field string --fieldName text --notNull --sizeMin 1 --sizeMax 140
+field date --fieldName postedOn --type java.util.Date --notNull
