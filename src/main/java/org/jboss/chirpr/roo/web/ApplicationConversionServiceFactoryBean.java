@@ -18,6 +18,7 @@ public class ApplicationConversionServiceFactoryBean extends FormattingConversio
 	protected void installFormatters(FormatterRegistry registry) {
 		super.installFormatters(registry);
 	    registry.addConverter(getProfileSetConverter());
+	    registry.addConverter(getProfileConverter());
 	}
 	
 	private Converter<Set<Profile>, String> getProfileSetConverter() {

@@ -14,5 +14,11 @@
             <menu:item id="i_chirp_new" messageCode="global_menu_new" url="/chirps?form" z="Xep/aGb4QTbHkDdd+ydlK4ZS8dE="/>
         <menu:item id="i_chirp_list" messageCode="global_menu_list" url="/chirps?page=1&amp;size=${empty param.size ? 10 : param.size}" z="q6FUnOHeovI7OCqOUcGqPsmn69w="/>
         </menu:category>
+    <menu:category id="c_controller" z="nj8Dm3hojIyIEyPkwE1UMDIs+K8=">
+            <menu:item id="i_controller__friendsindex_id" messageCode="global_generic" url="/friends/index" z="0yrKLms3Iz1C3QV1D1iGm5o4v/4="/>
+        <menu:item id="i_controller__followindex_id" messageCode="global_generic" url="/follow/index" z="UU8w1awojgqzTtNr8Gd/iUvH2SQ="/>
+        <menu:item id="i_controller__unfollowindex_id" messageCode="global_generic" url="/unfollow/index" z="8SPwBplQH/IXeQEy2kh3b9yQ0es="/>
+        <menu:item id="i_controller__homeindex_id" messageCode="global_generic" url="/home/index" z="RdkJRXBjwI2iuen0Vi10ZBIeuWk="/>
+        </menu:category>
     </menu:menu>
 </div>

@@ -30,3 +30,15 @@ finder list
 finder add findProfilesByUsername
 finder add findProfilesByIdentityUrl
 controller all --package ~.web
+help
+focus --class ~domain.Chirp
+finder list
+finder add findChirpsByAuthor
+finder list
+web mvc controller --class ~.domain.web.FriendsController
+web mvc controller --class ~.domain.web.FollowController
+web mvc controller --class ~.domain.web.UnfollowController
+finder list
+finder add findChirpsByAuthor
+web mvc controller --class ~.domain.web.HomeController
+finder list

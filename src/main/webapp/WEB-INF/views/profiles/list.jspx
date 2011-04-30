@@ -1,13 +1,49 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
-    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-    <jsp:output omit-xml-declaration="yes"/>
-    <page:list id="pl_org_jboss_chirpr_roo_domain_Profile" items="${profiles}" z="KX26fH6L/LuE/j2GiI00xcNDpAo=">
-        <table:table data="${profiles}" id="l_org_jboss_chirpr_roo_domain_Profile" path="/profiles" z="9ZlV7m9U1l2QALSixhmKZjtQsjU=">
-            <table:column id="c_org_jboss_chirpr_roo_domain_Profile_username" property="username" z="6LhaOmPPOM3XsTSxfF6h0fluKn0="/>
-            <table:column id="c_org_jboss_chirpr_roo_domain_Profile_identityUrl" property="identityUrl" z="q8M6NuTvNf6+9J+HcMQ3Xa70x1k="/>
-            <table:column id="c_org_jboss_chirpr_roo_domain_Profile_friends" property="friends" z="wlzeq71/ydudlUsaW2lVyGqI+h8="/>
-            <table:column id="c_org_jboss_chirpr_roo_domain_Profile_followers" property="followers" z="P4o5JUytFFEobMLwsYFuk5b31lU="/>
-        </table:table>
-    </page:list>
-</div>
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:page="urn:jsptagdir:/WEB-INF/tags/form"
+	xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields"
+	xmlns:util="urn:jsptagdir:/WEB-INF/tags/util"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:sec="http://www.springframework.org/security/tags"
+	xmlns:form="http://www.springframework.org/tags/form" version="2.0">
+<jsp:directive.page contentType="text/html;charset=UTF-8" /> <jsp:output
+	omit-xml-declaration="yes" />
+    <page:list id="pl_org_jboss_chirpr_roo_domain_Profile"
+	items="${profiles}" z="KX26fH6L/LuE/j2GiI00xcNDpAo=">
+	<table>
+	    <spring:url value="/chirps" var="chirpUrl"/>
+        <spring:url value="/follow" var="followUrl"/>
+        <spring:url value="/unfollow" var="unfollowUrl"/>
+		<c:forEach items="${profiles}" var="profile">
+			<tr>
+				<td>
+				<a href="${chirpUrl}?author=${profile.username}"><c:out value="${profile.username}"/></a></td>
+				<sec:authorize access="isAuthenticated()">
+				
+				<sec:authentication property="principal.profile" var="currentUser" scope="request"/>
+				<spring:eval expression="currentUser.isFollowing(profile)" var="follows"/>
+				<c:if test="${not follows}">
+				<td>
+				<form action="${followUrl}" method="post">
+					<input type="hidden" value="${profile.username}" name="id" />
+					<input type="submit" value="Follow" />
+				</form>
+				</td>
+				</c:if>
+				<c:if test="${follows}">
+				<td>
+				<form action="${unfollowUrl}" method="post">
+					<input type="hidden" value="${profile.username}" name="id" />
+					<input type="submit" value="Unfollow" />
+				</form>
+				</td>
+				</c:if>
+				
+              </sec:authorize>			
+				
+			</tr>
+		</c:forEach>
+
+	</table>
+</page:list></div>

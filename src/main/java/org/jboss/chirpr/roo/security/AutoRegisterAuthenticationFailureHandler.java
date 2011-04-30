@@ -45,6 +45,7 @@ public class AutoRegisterAuthenticationFailureHandler extends ExceptionMappingAu
 			}
 			profile.persist();
 			openIDAuthenticationToken.setDetails(new ProfileUser(profile));
+			openIDAuthenticationToken.setAuthenticated(true);			
 		    SecurityContextHolder.getContext().setAuthentication(openIDAuthenticationToken);
 			getRedirectStrategy().sendRedirect(request, response, ((DefaultSavedRequest)request.getSession().getAttribute(WebAttributes.SAVED_REQUEST)).getRedirectUrl());
 		}

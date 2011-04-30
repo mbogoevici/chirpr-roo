@@ -28,29 +28,7 @@ import org.springframework.web.util.WebUtils;
 
 privileged aspect ChirpController_Roo_Controller {
     
-    @RequestMapping(method = RequestMethod.POST)
-    public String ChirpController.create(@Valid Chirp chirp, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
-        if (bindingResult.hasErrors()) {
-            uiModel.addAttribute("chirp", chirp);
-            addDateTimeFormatPatterns(uiModel);
-            return "chirps/create";
-        }
-        uiModel.asMap().clear();
-        chirp.persist();
-        return "redirect:/chirps/" + encodeUrlPathSegment(chirp.getId().toString(), httpServletRequest);
-    }
-    
-    @RequestMapping(params = "form", method = RequestMethod.GET)
-    public String ChirpController.createForm(Model uiModel) {
-        uiModel.addAttribute("chirp", new Chirp());
-        addDateTimeFormatPatterns(uiModel);
-        List dependencies = new ArrayList();
-        if (Profile.countProfiles() == 0) {
-            dependencies.add(new String[]{"profile", "profiles"});
-        }
-        uiModel.addAttribute("dependencies", dependencies);
-        return "chirps/create";
-    }
+        
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String ChirpController.show(@PathVariable("id") Long id, Model uiModel) {
@@ -60,32 +38,7 @@ privileged aspect ChirpController_Roo_Controller {
         return "chirps/show";
     }
     
-    @RequestMapping(method = RequestMethod.GET)
-    public String ChirpController.list(@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
-        if (page != null || size != null) {
-            int sizeNo = size == null ? 10 : size.intValue();
-            uiModel.addAttribute("chirps", Chirp.findChirpEntries(page == null ? 0 : (page.intValue() - 1) * sizeNo, sizeNo));
-            float nrOfPages = (float) Chirp.countChirps() / sizeNo;
-            uiModel.addAttribute("maxPages", (int) ((nrOfPages > (int) nrOfPages || nrOfPages == 0.0) ? nrOfPages + 1 : nrOfPages));
-        } else {
-            uiModel.addAttribute("chirps", Chirp.findAllChirps());
-        }
-        addDateTimeFormatPatterns(uiModel);
-        return "chirps/list";
-    }
-    
-    @RequestMapping(method = RequestMethod.PUT)
-    public String ChirpController.update(@Valid Chirp chirp, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
-        if (bindingResult.hasErrors()) {
-            uiModel.addAttribute("chirp", chirp);
-            addDateTimeFormatPatterns(uiModel);
-            return "chirps/update";
-        }
-        uiModel.asMap().clear();
-        chirp.merge();
-        return "redirect:/chirps/" + encodeUrlPathSegment(chirp.getId().toString(), httpServletRequest);
-    }
-    
+      
     @RequestMapping(value = "/{id}", params = "form", method = RequestMethod.GET)
     public String ChirpController.updateForm(@PathVariable("id") Long id, Model uiModel) {
         uiModel.addAttribute("chirp", Chirp.findChirp(id));

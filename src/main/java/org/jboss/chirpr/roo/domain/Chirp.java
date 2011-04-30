@@ -7,14 +7,20 @@ import org.jboss.chirpr.roo.domain.Profile;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import java.util.Collection;
 import java.util.Date;
+
+import javax.persistence.EntityManager;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.TypedQuery;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 @RooJavaBean
 @RooToString
-@RooEntity
+@RooEntity(finders = { "findChirpsByAuthor" })
 public class Chirp {
 
     @ManyToOne
@@ -29,4 +35,13 @@ public class Chirp {
     @DateTimeFormat(style = "S-")
     @NotNull
     private Date postedOn;
+    
+    
+    public static TypedQuery<Chirp> findChirpsByAuthorInList(Collection<Profile> authors) {
+        if (authors == null) throw new IllegalArgumentException("The authors argument is required");
+        EntityManager em = Chirp.entityManager();
+        TypedQuery<Chirp> q = em.createQuery("SELECT o FROM Chirp AS o WHERE o.author in (:authors)", Chirp.class);
+        q.setParameter("authors", authors);
+        return q;
+    }
 }
